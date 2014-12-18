@@ -1,0 +1,18 @@
+{
+    "name": "dxjs",
+    "version": "2.0.3",
+    "license": "MPL-2.0",
+    "main": "src/",
+    "ignore": [
+        ".*",
+        "test/**",
+        "Gruntfile.js",
+        "karma.*.js",
+        "bower.json",
+        "package.json"
+    ],
+    "dependencies": {
+        "classlist": "https://github.com/eligrey/classList.js.git#87528a8a04046e933bf0b59eb5611b50791fecdd",
+        "es5-shim": "~3.1.1"
+    }
+}
