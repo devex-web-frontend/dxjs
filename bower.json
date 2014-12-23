@@ -12,7 +12,7 @@
         "package.json"
     ],
     "dependencies": {
-        "classlist": "https://github.com/eligrey/classList.js.git#87528a8a04046e933bf0b59eb5611b50791fecdd",
+        "classlist": "eligrey/classList.js#87528a8a04046e933bf0b59eb5611b50791fecdd",
         "es5-shim": "~3.1.1"
     }
 }
