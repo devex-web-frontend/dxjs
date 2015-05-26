@@ -6,7 +6,7 @@
   "ignore": [
     ".*",
     "test/**",
-    "Gruntfile.js",
+    "gulpfile.js",
     "karma.*.js",
     "bower.json",
     "package.json"
