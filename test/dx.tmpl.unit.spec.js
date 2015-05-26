@@ -1,3 +1,5 @@
+import '../src/dx.tmpl';
+
 describe('DX.Tmpl', function() {
 	describe('#process()', function() {
 		it('should replace keys in the string passed with fileds of the object passed', function() {

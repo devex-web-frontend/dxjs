@@ -1,3 +1,5 @@
+import '../src/dx.bem';
+
 describe('DX.Bem', function() {
 	describe('#createModifiedClassName()', function() {
 		it('should work with array of modifiers', function() {

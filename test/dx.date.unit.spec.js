@@ -1,3 +1,5 @@
+import '../src/dx.date';
+
 describe('DX.Date', function() {
 	describe('#isEqualYear', function() {
 		it('should return true if arguments are dates of one year', function() {

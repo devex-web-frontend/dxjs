@@ -1,3 +1,5 @@
+import '../src/dx.dom';
+
 describe('DX.Dom', function() {
 	describe('#createElement()', function() {
 		beforeEach(function() {});

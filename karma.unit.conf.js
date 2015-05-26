@@ -1,52 +1,66 @@
-module.exports = function(config) {
-  config.set({
+var babelMoreOptions = { stage: 0 };
 
-    // base path, that will be used to resolve files and exclude
-    basePath: '',
+module.exports = function (config) {
+	config.set({
 
+		// base path, that will be used to resolve files and exclude
+		basePath : './',
 
-    // frameworks to use
-    frameworks: ['jasmine'],
+		// frameworks to use
+		frameworks: ['systemjs', 'jasmine'],
 
+		// list of files / patterns to load in the browser
+		files: [
+			'test/matchers/**/*.js'
+		],
 
-    // list of files / patterns to load in the browser
-    files: [
-	  'lib/classlist/classList.js',
-	  'lib/es5-shim/es5-shim.js',
-	  'src/dx.core.js',
-	  'src/dx.*.js',
-	  'test/matchers/**/*.js',
-      'test/dx.*.unit.spec.js'
-    ],
+		// preprocess matching files before serving them to the browser
+		// available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
 
-	preprocessors: {
-		'src/*.js': ['coverage']
-	},
+		preprocessors: {
+			'src/*.js': ['coverage']
+		},
 
+		reporters: ['dots', 'coverage'],
 
-    // list of files to exclude
-    exclude: [
-      
-    ],
+		coverageReporter: {
+			reporters: [
+				{type: 'html', dir: 'coverage/'},
+				{type: 'text-summary'}
+			],
 
-    // test results reporter to use
-    // possible values: 'dots', 'progress', 'junit', 'growl', 'coverage'
-    reporters: ['dots'],
+			instrumenters: {isparta: require('isparta')},
+			instrumenter: {
+				'**/*.js': 'isparta'
+			}
+		},
 
+		systemjs: {
+			configFile: 'test/system.conf.js',
+			files: [
+				'src/*.js',
+				'test/dx.*.unit.spec.js'
+			],
+			config: {
+				transpiler: 'babel'
+			},
+			testFileSuffix: '.spec.js'
+		},
 
-    // web server port
-    port: 9876,
+		// list of files to exclude
+		exclude: [],
 
+		// web server port
+		port: 9876,
 
-    // enable / disable colors in the output (reporters and logs)
-    colors: true,
+		// enable / disable colors in the output (reporters and logs)
+		colors: true,
 
+		// level of logging
+		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+		logLevel: config.LOG_INFO,
 
-    // level of logging
-    // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
-
-    // If browser does not capture in given timeout [ms], kill it
-    captureTimeout: 30000
-  });
+		// If browser does not capture in given timeout [ms], kill it
+		captureTimeout: 30000
+	});
 };

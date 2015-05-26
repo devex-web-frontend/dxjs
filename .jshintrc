@@ -1,14 +1,19 @@
 {
-	"bitwise": true,
-	"eqeqeq": true,
-	"forin": true,
-	"latedef": true,
+	"nonew": true,
+	"jquery": true,
+	"curly": true,
 	"noarg": true,
+	"forin": true,
+	"noempty": true,
+	"node": true,
+	"eqeqeq": true,
 	"undef": true,
-	"strict": true,
+	"bitwise": true,
 	"browser": true,
+	"devel": true,
+	"unused": "vars",
+	"esnext": true,
 	"globals": {
-		"WheelEvent": true,
-		"DX": true
+		"WheelEvent": true
 	}
 }

@@ -1,18 +1,19 @@
 {
-    "name": "dxjs",
-    "version": "2.0.3",
-    "license": "MPL-2.0",
-    "main": "src/",
-    "ignore": [
-        ".*",
-        "test/**",
-        "Gruntfile.js",
-        "karma.*.js",
-        "bower.json",
-        "package.json"
-    ],
-    "dependencies": {
-        "classlist": "eligrey/classList.js#87528a8a04046e933bf0b59eb5611b50791fecdd",
-        "es5-shim": "~3.1.1"
-    }
+  "name": "dxjs",
+  "version": "2.0.3",
+  "license": "MPL-2.0",
+  "main": "src/",
+  "ignore": [
+    ".*",
+    "test/**",
+    "Gruntfile.js",
+    "karma.*.js",
+    "bower.json",
+    "package.json"
+  ],
+  "dependencies": {
+    "classlist": "eligrey/classList.js#87528a8a04046e933bf0b59eb5611b50791fecdd",
+    "es6-shim": "~0.31.2"
+  },
+  "devDependencies": {}
 }

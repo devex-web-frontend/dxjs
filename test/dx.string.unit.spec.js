@@ -1,3 +1,5 @@
+import '../src/dx.string';
+
 describe('DX.String', function() {
 	describe('#hyphenate()', function() {
 		it('should hyphenate the string in camel case', function() {
