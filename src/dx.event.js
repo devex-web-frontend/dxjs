@@ -1,5 +1,3 @@
-/*jshint nonew: false */
-
 'use strict';
 
 /**
@@ -11,13 +9,14 @@ import DxCore from './dx.core';
 export default window.DX.Event = {
 
 	/**
+	 * Execute all handlers attached to element for the given event type.
 	 * @param {Element} element
 	 * @param {String} eventType
-	 * @param {Object} [params] - {Boolean:bubbles, Any:detail}
+	 * @param {{bubbles: Boolean, detail: *}} [params]
 	 */
 
 	trigger (element, eventType, params) {
-		var event;
+		let event;
 
 		params = params || {};
 		params.cancelable = true;
@@ -38,12 +37,13 @@ export default window.DX.Event = {
 	MOUSE_DOWN: 'mousedown',
 	MOUSE_MOVE: 'mousemove',
 	MOUSE_WHEEL: (function getMouseWheelEventName() {
-		var event = ('onmousewheel' in document.documentElement) ? 'mousewheel' : 'DOMMouseScroll';
+		let event = ('onmousewheel' in document.documentElement) ? 'mousewheel' : 'DOMMouseScroll';
 
 		try {
 			new WheelEvent('wheel');
 			event = 'wheel';
 		} catch (e) {
+			/*empty block*/
 		}
 
 		return event;

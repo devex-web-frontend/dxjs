@@ -12,6 +12,17 @@ describe('DX.String', function() {
 			expect(DX.String.hyphenate('border-radius')).toBe('border-radius');
 		});
 	});
+
+	describe('#dasherize', function() {
+
+		it('should dasherize the string in camel case', function() {
+			expect(DX.String.dasherize('fontSize')).toBe('font-size');
+		});
+		it('should leave the string without camel case as is', function() {
+			expect(DX.String.dasherize('border-radius')).toBe('border-radius');
+		});
+	});
+
 	describe('#camelize()', function() {
 		it('should camelize the string with hyphens', function() {
 			expect(DX.String.camelize('font-size')).toBe('fontSize');
@@ -26,15 +37,15 @@ describe('DX.String', function() {
 	describe('#createRandomId()', function() {
 		it('should generate random id without prefix or postfix passed', function() {
 			expect(DX.String.createRandomId()).not.toBe(DX.String.createRandomId());
-			expect(/^id_\d+_\d+$/.test(DX.String.createRandomId())).toBeTruthy();
+			expect(/^id_\d+$/.test(DX.String.createRandomId())).toBeTruthy();
 		});
 
 		it('should generate random id with prefix passed', function() {
-			expect(/^rnd_\d+_\d+$/.test(DX.String.createRandomId('rnd'))).toBeTruthy();
+			expect(/^rnd_\d+$/.test(DX.String.createRandomId('rnd'))).toBeTruthy();
 		});
 
 		it('should generate random id with postfix passed', function() {
-			expect(/^id_\d+_\d+_rnd$/.test(DX.String.createRandomId(null, 'rnd'))).toBeTruthy();
+			expect(/^id_\d+_rnd$/.test(DX.String.createRandomId(null, 'rnd'))).toBeTruthy();
 		});
 	});
 

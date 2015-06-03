@@ -9,6 +9,7 @@ import './dx.core';
 export default window.DX.Tmpl = {
 
 	/**
+	 * @deprecated
 	 * Gets template and data and returns processed string (all vars in template replaced with values from data)
 	 * @param {String} template
 	 * @param {Object} data
@@ -16,22 +17,20 @@ export default window.DX.Tmpl = {
 	 */
 
 	process(template, data) {
-
 		let constructs;
-		var constructName;
-		var result;
+		let constructName;
+		let result;
 
 		result = template;
 		constructs = result.match(/{%=\s*[\w-]+\s*%}/g);
 
 		if (constructs) {
 			constructs.forEach(construct => {
-				constructName = construct.replace(/^{%=\s*|\s*%}$/g, '');
+				constructName = construct.replace(/^{%=\s*|\s*%}$/mg, '');
 				result = result.replace(new RegExp(construct, 'g'), (data[constructName] || ''));
 			});
 		}
 
 		return result;
-
 	}
 };

@@ -1,29 +1,16 @@
 'use strict';
 
-function getSibling(direction, element) {
-	var sibling = element[direction + 'ElementSibling'];
-
-	if (!sibling) {
-		sibling = element[direction + 'Sibling'];
-
-		while (sibling && sibling.nodeType !== 1) {
-			sibling = sibling[direction + 'Sibling'];
-		}
-	}
-
-	return sibling;
-}
-
 /**
  * @copyright Devexperts
- * @requires DX.String
  */
 
 import './dx.core';
 import DxString from './dx.string';
 
 export default window.DX.Dom = {
+
 	/**
+	 * Make element from tag and options
 	 * @param {String} tagName
 	 * @param {Object} [options]
 	 * @return {Element}
@@ -32,7 +19,7 @@ export default window.DX.Dom = {
 		let element = document.createElement(tagName);
 		let newProp;
 
-		for (var prop in options) {
+		for (let prop in options) {
 			if (Object.prototype.hasOwnProperty.call(options, prop)) {
 				if (prop === 'for') {
 					newProp = 'htmlFor';
@@ -60,6 +47,7 @@ export default window.DX.Dom = {
 	},
 
 	/**
+	 * Get the parent for specified element
 	 * @param {Element} element
 	 * @return {Element}
 	 */
@@ -68,9 +56,10 @@ export default window.DX.Dom = {
 	},
 
 	/**
-	 * @param {Element} element
+	 * Get the parent  for specified element matches filterFn
+	 * @param {Element | HTMLDocument} element
 	 * @param {Function} filterFn
-	 * @returns {Element|null}
+	 * @returns {Element | null}
 	 */
 	getAscendantByFilter (element, filterFn) {
 		while (element && (element !== document) && !filterFn(element)) {
@@ -81,6 +70,7 @@ export default window.DX.Dom = {
 	},
 
 	/**
+	 * Checks if element is accendant
 	 * @param {Element} element
 	 * @param {Element} targetElement
 	 * @return {Boolean}
@@ -92,18 +82,19 @@ export default window.DX.Dom = {
 	},
 
 	/**
+	 * Get ascendant element by className
 	 * @param {Element} element
 	 * @param {String} className
 	 * @return {Element|null}
 	 */
 	getAscendantByClassName (element, className) {
-
 		return this.getAscendantByFilter(element, function(currentElement) {
 			return currentElement.classList && currentElement.classList.contains(className);
 		});
 	},
 
 	/**
+	 * Get ascendant element by attribute
 	 * @param {Element} element
 	 * @param {String} attrName
 	 * @param {String} [attrValue]
@@ -117,6 +108,7 @@ export default window.DX.Dom = {
 	},
 
 	/**
+	 * Get next sibling for specified element
 	 * @param {Element} element
 	 * @return {Element|null}
 	 */
@@ -125,6 +117,7 @@ export default window.DX.Dom = {
 	},
 
 	/**
+	 * Get previous sibling for specified element
 	 * @param {Element} element
 	 * @return {Element|null}
 	 */
@@ -133,17 +126,18 @@ export default window.DX.Dom = {
 	},
 
 	/**
+	 * Get arbitrary data associated with the specified element
 	 * @param {Element} element
 	 * @param {String} [namespace]
 	 * @return {Object}
 	 */
 	getData (element, namespace) {
 		let defaultMatcher = 'data-';
-		var matcher = (namespace) ? defaultMatcher + namespace + '-' : defaultMatcher;
-		var attrs = element.attributes;
-		var i = attrs.length;
-		var result = {};
-		var attrName;
+		let matcher = (namespace) ? defaultMatcher + namespace + '-' : defaultMatcher;
+		let attrs = element.attributes;
+		let i = attrs.length;
+		let result = {};
+		let attrName;
 
 		while (i--) {
 			attrName = attrs[i].name;
@@ -157,3 +151,17 @@ export default window.DX.Dom = {
 		return result;
 	}
 };
+
+function getSibling(direction, element) {
+	let sibling = element[direction + 'ElementSibling'];
+
+	if (!sibling) {
+		sibling = element[direction + 'Sibling'];
+
+		while (sibling && sibling.nodeType !== 1) {
+			sibling = sibling[direction + 'Sibling'];
+		}
+	}
+
+	return sibling;
+}

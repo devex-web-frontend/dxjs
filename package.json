@@ -2,29 +2,26 @@
   "name": "dxjs",
   "version": "2.0.3",
   "license": "MPL-2.0",
-  "devDependencies": {
+  "scripts": {
+    "test": "karma start --browsers PhantomJS --single-run",
+    "eslint": "eslint --ext .js src",
+    "postinstall": "bower prune && bower install"
+  },
+  "dependencies": {
     "babel-core": "^5.4.4",
-    "bower": "~1.3.3",
+    "bower": "^1.4.1",
     "es6-module-loader": "^0.16.6",
-    "gulp": "^3.8.11",
-    "gulp-babel": "^5.1.0",
-    "gulp-clean": "^0.3.1",
-    "gulp-jscs": "^1.6.0",
-    "gulp-jshint": "1.10.0",
-    "gulp-karma": "0.0.4",
+    "eslint": "^0.22.1",
+    "esprima-fb": "^15001.1.0-dev-harmony-fb",
     "isparta": "^3.0.3",
-    "jshint-stylish": "^1.0.2",
-    "karma": "~0.12.16",
+    "jscs": "https://registry.npmjs.org/jscs/-/jscs-1.13.1.tgz",
+    "jssc": "^0.2.6",
+    "karma": "^0.12.31",
     "karma-coverage": "^0.3.1",
     "karma-jasmine": "~0.1.5",
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-systemjs": "^0.4.0",
     "phantomjs-polyfill": "0.0.1",
     "systemjs": "^0.16.11"
-  },
-  "scripts": { },
-  "dependencies": {
-    "jscs": "^1.13.1",
-    "jssc": "^0.2.6"
   }
 }

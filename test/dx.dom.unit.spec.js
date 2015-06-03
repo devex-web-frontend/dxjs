@@ -239,7 +239,7 @@ describe('DX.Dom', function() {
 			it('should not throw error if document is reached', function() {
 				var reachDocument = function() {
 					return DX.Dom.getAscendantByAttribute(secondStartElement, 'thatElement', 'wrongValue');
-				}
+				};
 				expect(reachDocument).not.toThrow();
 			});
 

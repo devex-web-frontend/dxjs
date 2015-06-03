@@ -8,6 +8,7 @@ import './dx.core';
 
 export default window.DX.Date = {
 	/**
+	 * Check is passed variable is date object
 	 * @param {Date} date
 	 * @returns {boolean}
 	 */
@@ -16,6 +17,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Clones passed date and return new date object
 	 * @param {Date} date
 	 * @returns {Date}
 	 */
@@ -24,6 +26,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Compare years two dates
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -33,6 +36,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Compare month passed dates
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -42,6 +46,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Compare passed dates
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -53,6 +58,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Check if the year first date  greater than a year the second date
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -61,6 +67,7 @@ export default window.DX.Date = {
 		return date1.getFullYear() > date2.getFullYear();
 	},
 	/**
+	 * Check if the year first date  less than a year the second date
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -70,6 +77,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Check if the month first date greater than a month the second date
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -83,6 +91,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Check if the month first date less than a month the second date
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -92,6 +101,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Check if the first date greater the second date
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -107,6 +117,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Check if the first date less the second date
 	 * @param {Date} date1
 	 * @param {Date} date2
 	 * @returns {boolean}
@@ -116,6 +127,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Decreases specified date by one month
 	 * @param {Date} date
 	 * @returns {Date}
 	 */
@@ -127,6 +139,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Increases specified date by one month
 	 * @param {Date} date
 	 * @returns {Date}
 	 */
@@ -139,6 +152,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Sets midnight for specified date
 	 * @param {Date} date
 	 */
 	setMidnight (date) {
@@ -149,6 +163,7 @@ export default window.DX.Date = {
 	},
 
 	/**
+	 * Convert date to string in iso format
 	 * @param {Date} date
 	 * @returns {String}
 	 */

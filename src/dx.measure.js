@@ -9,9 +9,10 @@ import './dx.core';
 export default window.DX.Measure = {
 
 	/**
+	 * Get element sizes
 	 * @param {HTMLElement} element
 	 * @param {Boolean} [isOuter]
-	 * @return {Object} - {Number:width, Number:height}
+	 * @return {{width: Number, height: Number}}
 	 */
 	getSize(element, isOuter) {
 		return {
@@ -21,12 +22,13 @@ export default window.DX.Measure = {
 	},
 
 	/**
+	 * Get element positions
 	 * @param {Element} element
-	 * @return {Object} - {Number:x, Number:y}
+	 * @return {{x:Number, y: Number}}
 	 */
 	getPosition (element) {
 		let box = element.getBoundingClientRect();
-		var docElement = document.documentElement;
+		let docElement = document.documentElement;
 
 		return {
 			x: box.left + window.pageXOffset - docElement.clientLeft,

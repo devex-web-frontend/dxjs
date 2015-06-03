@@ -1,4 +1,5 @@
 {
+	"esprima": "esprima-fb",
 	"requireCurlyBraces": [
 		"if",
 		"else",
@@ -19,10 +20,11 @@
 	"validateQuoteMarks": "'",
 
 	"disallowMultipleLineStrings": true,
-	"disallowMixedSpacesAndTabs": true,
+	"disallowMixedSpacesAndTabs": "smart",
 	"disallowSpaceAfterPrefixUnaryOperators": true,
 	"disallowMultipleVarDecl": true,
 	"disallowKeywordsOnNewLine": ["else"],
+  "disallowPaddingNewlinesInBlocks": true,
 
 	"requireSpaceAfterKeywords": [
 		"if",
@@ -46,22 +48,30 @@
 	"requireSpaceAfterBinaryOperators": true,
 	"requireSpacesInConditionalExpression": true,
 	"requireSpaceBeforeBlockStatements": true,
+  "requireSpaceBeforeObjectValues": true,
 	"requireSpacesInFunctionExpression": {
 		"beforeOpeningCurlyBrace": true
 	},
+  "requireSpacesInForStatement": true,
+  "requireSpacesInConditionalExpression": true,
+  "requireSpaceBetweenArguments": true,
 	"disallowSpacesInsideObjectBrackets": "all",
 	"disallowSpacesInsideArrayBrackets": "all",
 	"disallowSpacesInsideParentheses": true,
 
 	"disallowMultipleLineBreaks": true,
 	"disallowNewlineBeforeBlockStatements": true,
+  "disallowMultipleSpaces": true,
 
 	"esnext": true,
 	"validateJSDoc": {
 		"requireParamTypes": true,
 		"checkParamNames": true
 	},
+  "validateParameterSeparator": ", ",
 	"excludeFiles": [
+		"src/api/dxfeed.cometd.js",
+		"src/api/dxfeed.context.js",
 		"node_modules/**",
 		"lib/**",
 		"dist/**"

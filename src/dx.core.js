@@ -4,7 +4,7 @@
  * @copyright Devexperts
  */
 
-export default window.DX =  {
+export default window.DX = {
 
 	/**
 	 * Shorthand for document.getElementById()
@@ -42,7 +42,8 @@ export default window.DX =  {
 	},
 
 	/**
-	 * @param {Any} variable
+	 * Check is defined variable
+	 * @param {*} variable
 	 * @returns {Boolean}
 	 */
 	isDefined (variable) {
@@ -50,6 +51,7 @@ export default window.DX =  {
 	},
 
 	/**
+	 * Check existence of a touch action in window
 	 * @returns {Boolean}
 	 */
 	isTouchAvailable () {

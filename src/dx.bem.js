@@ -6,18 +6,6 @@
 
 import './dx.core';
 
-function filter(collection, fn) {
-	return Array.prototype.filter.call(collection, fn);
-}
-
-function some(collection, fn) {
-	return Array.prototype.some.call(collection, fn);
-}
-
-function isModified(className, modifier) {
-	return (new RegExp('[^-]+-' + (modifier || '\\w+') + '$')).test(className);
-}
-
 export default window.DX.Bem = {
 	/**
 	 * Make string for className attribute
@@ -26,7 +14,7 @@ export default window.DX.Bem = {
 	 * @return {String}
 	 */
 	createModifiedClassName (baseClassName, modifiers) {
-		var classNameParts = [];
+		let classNameParts = [];
 
 		modifiers = modifiers || [];
 		classNameParts = classNameParts.concat(baseClassName, modifiers);
@@ -35,6 +23,7 @@ export default window.DX.Bem = {
 	},
 
 	/**
+	 * Add modifier to element
 	 * @param {Element} element
 	 * @param {String} modifier
 	 * @param {String} [baseClassName]
@@ -57,6 +46,7 @@ export default window.DX.Bem = {
 	},
 
 	/**
+	 * Remove modifier from element
 	 * @param {Element} element
 	 * @param {String} modifier
 	 * @param {String} [baseClassName]
@@ -78,6 +68,7 @@ export default window.DX.Bem = {
 	},
 
 	/**
+	 * Check the existence modifier for element
 	 * @param {Element} element
 	 * @param {String} modifier
 	 * @param {String} [baseClassName]
@@ -96,3 +87,15 @@ export default window.DX.Bem = {
 	}
 
 };
+
+function filter(collection, fn) {
+	return Array.prototype.filter.call(collection, fn);
+}
+
+function some(collection, fn) {
+	return Array.prototype.some.call(collection, fn);
+}
+
+function isModified(className, modifier) {
+	return (new RegExp('[^-]+-' + (modifier || '\\w+') + '$')).test(className);
+}
