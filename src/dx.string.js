@@ -26,19 +26,11 @@ export default window.DX.String = {
 	 * @param {Boolean} lower
 	 */
 	dasherize (string, lower = true) {
-		string = this.decamelize(string).replace(/[ _]/gm, '-');
+		string = string.replace(/([a-z])(?=[A-Z])/g, '$1-');
 		if (lower) {
 			string = string.toLowerCase();
 		}
 		return string;
-	},
-
-	/**
-	 * Converts a camelized string into all lower case separated by underscores.
-	 * @param {String} string
-	 */
-	decamelize (string) {
-		return string.replace(/([a-z\d])([A-Z])/g, '$1_$2');
 	},
 
 	/**
@@ -52,7 +44,7 @@ export default window.DX.String = {
 	},
 
 	/**
-	 * Generate a unique integer id
+	 * Generate a unique id
 	 * @param {string|number} prefix
 	 * @param {string|number} postfix
 	 * @returns {string}

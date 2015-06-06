@@ -18,6 +18,9 @@ describe('DX.String', function() {
 		it('should dasherize the string in camel case', function() {
 			expect(DX.String.dasherize('fontSize')).toBe('font-size');
 		});
+		it('should dasherize the string that starts with a capital letter correctly', function() {
+			expect(DX.String.hyphenate('MozBoxSizing')).toBe('-moz-box-sizing');
+		});
 		it('should leave the string without camel case as is', function() {
 			expect(DX.String.dasherize('border-radius')).toBe('border-radius');
 		});
@@ -45,7 +48,7 @@ describe('DX.String', function() {
 		});
 
 		it('should generate random id with postfix passed', function() {
-			expect(/^id_\d+_rnd$/.test(DX.String.createRandomId(null, 'rnd'))).toBeTruthy();
+			expect(/^id_\d+_rnd$/.test(DX.String.createRandomId('', 'rnd'))).toBeTruthy();
 		});
 	});
 
