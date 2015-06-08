@@ -1,3 +1,5 @@
+import '../src/dx.measure';
+
 describe('DX.Measure', function() {
 	beforeEach(function() {
 	});

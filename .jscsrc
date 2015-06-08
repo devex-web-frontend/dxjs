@@ -1,4 +1,5 @@
 {
+	"esprima": "esprima-fb",
 	"requireCurlyBraces": [
 		"if",
 		"else",
@@ -6,10 +7,25 @@
 		"while",
 		"do",
 		"try",
-		"catch",
-		"case",
-		"default"
+		"catch"
 	],
+	"requireOperatorBeforeLineBreak": true,
+	"requireCamelCaseOrUpperCaseIdentifiers": true,
+	"maximumLineLength": {
+		"value": 120,
+		"allowComments": true,
+		"allowRegex": true
+	},
+	"validateIndentation": "\t",
+	"validateQuoteMarks": "'",
+
+	"disallowMultipleLineStrings": true,
+	"disallowMixedSpacesAndTabs": "smart",
+	"disallowSpaceAfterPrefixUnaryOperators": true,
+	"disallowMultipleVarDecl": true,
+	"disallowKeywordsOnNewLine": ["else"],
+  "disallowPaddingNewlinesInBlocks": true,
+
 	"requireSpaceAfterKeywords": [
 		"if",
 		"else",
@@ -21,134 +37,44 @@
 		"try",
 		"catch"
 	],
+	"requireSpaceBeforeBinaryOperators": [
+		"=", "+=", "-=", "*=", "/=", "%=", "<<=", ">>=", ">>>=",
+		"&=", "|=", "^=", "+=",
+
+		"+", "-", "*", "/", "%", "<<", ">>", ">>>", "&",
+		"|", "^", "&&", "||", "===", "==", ">=",
+		"<=", "<", ">", "!=", "!=="
+	],
+	"requireSpaceAfterBinaryOperators": true,
+	"requireSpacesInConditionalExpression": true,
 	"requireSpaceBeforeBlockStatements": true,
-	"requireParenthesesAroundIIFE": true,
+  "requireSpaceBeforeObjectValues": true,
 	"requireSpacesInFunctionExpression": {
 		"beforeOpeningCurlyBrace": true
 	},
-	"disallowSpacesInFunctionExpression": {
-		"beforeOpeningRoundBrace": true
-	},
-	"requireMultipleVarDecl": true,
-	"requireBlocksOnNewline": true,
-	"disallowSpacesInsideObjectBrackets": true,
-	"disallowSpacesInsideArrayBrackets": true,
+  "requireSpacesInForStatement": true,
+  "requireSpacesInConditionalExpression": true,
+  "requireSpaceBetweenArguments": true,
+	"disallowSpacesInsideObjectBrackets": "all",
+	"disallowSpacesInsideArrayBrackets": "all",
 	"disallowSpacesInsideParentheses": true,
-	"disallowQuotedKeysInObjects": "allButReserved",
-	"disallowDanglingUnderscores": true,
-	"disallowSpaceAfterObjectKeys": true,
-	"requireCommaBeforeLineBreak": true,
-	"requireOperatorBeforeLineBreak": [
-		"?",
-		"+",
-		"-",
-		"/",
-		"*",
-		"=",
-		"==",
-		"===",
-		"!=",
-		"!==",
-		">",
-		">=",
-		"<",
-		"<=",
-		"&&",
-		"||"
-	],
-	"requireLeftStickedOperators": [
-		","
-	],
-	"disallowLeftStickedOperators": [
-		"?",
-		"+",
-		"-",
-		"/",
-		"*",
-		"=",
-		"==",
-		"===",
-		"!=",
-		"!==",
-		">",
-		">=",
-		"<",
-		"<=",
-		"&&",
-		"||"
-	],
-	"disallowRightStickedOperators": [
-		"?",
-		"+",
-		"/",
-		"*",
-		":",
-		"=",
-		"==",
-		"===",
-		"!=",
-		"!==",
-		">",
-		">=",
-		"<",
-		"<=",
-		"&&",
-		"||"
-	],
-	"disallowSpaceAfterPrefixUnaryOperators": [
-		"++",
-		"--",
-		"+",
-		"-",
-		"~",
-		"!"
-	],
-	"disallowSpaceBeforePostfixUnaryOperators": [
-		"++",
-		"--"
-	],
-	"requireSpaceBeforeBinaryOperators": [
-		"+",
-		"-",
-		"/",
-		"*",
-		"=",
-		"==",
-		"===",
-		"!=",
-		"!=="
-	],
-	"requireSpaceAfterBinaryOperators": [
-		"+",
-		"-",
-		"/",
-		"*",
-		"=",
-		"==",
-		"===",
-		"!=",
-		"!=="
-	],
-	"requireCamelCaseOrUpperCaseIdentifiers": true,
-	"disallowKeywords": [
-		"with"
-	],
-	"disallowMultipleLineStrings": true,
-	"validateQuoteMarks": "'",
-	"validateIndentation": "\t",
-	"disallowMixedSpacesAndTabs": true,
-	"disallowTrailingComma": true,
-	"disallowKeywordsOnNewLine": [
-		"else",
-		"catch",
-		"finally"
-	],
-	"requireCapitalizedConstructors": true,
-	"requireDotNotation": true,
-	"disallowYodaConditions": true,
+
+	"disallowMultipleLineBreaks": true,
+	"disallowNewlineBeforeBlockStatements": true,
+  "disallowMultipleSpaces": true,
+
+	"esnext": true,
 	"validateJSDoc": {
-		"checkParamNames": true,
-		"checkRedundantParams": true,
-		"requireParamTypes": true
-	}
+		"requireParamTypes": true,
+		"checkParamNames": true
+	},
+  "validateParameterSeparator": ", ",
+	"excludeFiles": [
+		"src/api/dxfeed.cometd.js",
+		"src/api/dxfeed.context.js",
+		"node_modules/**",
+		"lib/**",
+		"dist/**"
+	],
+	"fileExtensions": [".js", ".json", ".jsx"]
 }

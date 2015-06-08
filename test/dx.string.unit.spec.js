@@ -1,3 +1,5 @@
+import '../src/dx.string';
+
 describe('DX.String', function() {
 	describe('#hyphenate()', function() {
 		it('should hyphenate the string in camel case', function() {
@@ -10,29 +12,43 @@ describe('DX.String', function() {
 			expect(DX.String.hyphenate('border-radius')).toBe('border-radius');
 		});
 	});
+
+	describe('#dasherize', function() {
+
+		it('should dasherize the string in camel case', function() {
+			expect(DX.String.dasherize('fontSize')).toBe('font-size');
+		});
+		it('should dasherize the string that starts with a capital letter correctly', function() {
+			expect(DX.String.hyphenate('MozBoxSizing')).toBe('-moz-box-sizing');
+		});
+		it('should leave the string without camel case as is', function() {
+			expect(DX.String.dasherize('border-radius')).toBe('border-radius');
+		});
+	});
+
 	describe('#camelize()', function() {
 		it('should camelize the string with hyphens', function() {
 			expect(DX.String.camelize('font-size')).toBe('fontSize');
 		});
 		it('should camelize the string that starts with hyphen correctly', function() {
-			expect(DX.String.camelize('-moz-box-sizing')).toBe('MozBoxSizing');
+			expect(DX.String.camelize('-moz-box-sizing', false)).toBe('MozBoxSizing');
 		});
 		it('should leave the string without hyphens as is', function() {
-			expect(DX.String.camelize('DragAndDrop')).toBe('DragAndDrop');
+			expect(DX.String.camelize('DragAndDrop', false)).toBe('DragAndDrop');
 		});
 	});
 	describe('#createRandomId()', function() {
 		it('should generate random id without prefix or postfix passed', function() {
 			expect(DX.String.createRandomId()).not.toBe(DX.String.createRandomId());
-			expect(/^id_\d+_\d+$/.test(DX.String.createRandomId())).toBeTruthy();
+			expect(/^\d+$/.test(DX.String.createRandomId())).toBeTruthy();
 		});
 
 		it('should generate random id with prefix passed', function() {
-			expect(/^rnd_\d+_\d+$/.test(DX.String.createRandomId('rnd'))).toBeTruthy();
+			expect(/^rnd\d+$/.test(DX.String.createRandomId('rnd'))).toBeTruthy();
 		});
 
 		it('should generate random id with postfix passed', function() {
-			expect(/^id_\d+_\d+_rnd$/.test(DX.String.createRandomId(null, 'rnd'))).toBeTruthy();
+			expect(/^\d+rnd$/.test(DX.String.createRandomId('', 'rnd'))).toBeTruthy();
 		});
 	});
 

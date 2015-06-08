@@ -1,3 +1,5 @@
+import '../src/dx.event';
+
 describe('DX.Event', function() {
 	beforeEach(function() {});
 	afterEach(function() {});

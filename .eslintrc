@@ -1,0 +1,42 @@
+{
+  "ecmaFeatures": {
+    "modules": true,
+    "jsx": true
+  },
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true,
+    "jasmine": true
+  },
+  "rules": {
+    "quotes": [2, "single"],
+    "no-unused-vars": 0,
+    "semi": 2,
+    "eol-last": 0,
+    "no-undef": 0,
+    "no-use-before-define": [2, "nofunc"],
+    "no-underscore-dangle": 0,
+    "no-shadow": 0,
+    "dot-notation": 0,
+    "no-new": 0,
+    "no-multi-spaces": 0,
+    "no-mixed-spaces-and-tabs": [2, "smart-tabs"],
+    "no-path-concat": 0,
+    "no-trailing-spaces": [2, {
+      "skipBlankLines": true
+    }],
+    "no-dupe-args": 2,
+    "dot-location": [2, "property"],
+    "guard-for-in": 2,
+    "no-eq-null": 2,
+    "no-self-compare": 2,
+    "no-throw-literal": 2,
+    "radix": 2,
+    "comma-style": [2, "last"],
+    "no-lonely-if": 2,
+    "no-nested-ternary": 2,
+    "no-unneeded-ternary": 2,
+    "object-shorthand": [2, "methods"]
+  }
+}

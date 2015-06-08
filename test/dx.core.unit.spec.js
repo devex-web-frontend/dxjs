@@ -1,3 +1,5 @@
+import '../src/dx.core';
+
 describe('DX', function() {
 	beforeEach(function() {
 		document.body.innerHTML = [

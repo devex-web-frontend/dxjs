@@ -1,55 +1,72 @@
+'use strict';
+
 /**
  * @copyright Devexperts
  */
-(function(DX, window, document, undefined) {
-	'use strict';
+
+import './dx.core';
+
+let uniqueIdCounter = 0;
+
+export default window.DX.String = {
 
 	/**
-	 * @namespace
-	 * @memberOf window.DX
+	 * @deprecated
+	 * Hyphenate given string
+	 * @param {String} string
+	 * @returns {String}
 	 */
-	DX.String = {
-		/**
-		 *
-		 * @param {String} string
-		 * @returns {String}
-		 */
-		hyphenate: function(string) {
-			return string.replace(/[A-Z]/g, function(str) {
-				return '-' + str.toLowerCase();
-			});
-		},
+	hyphenate (string) {
+		return string.replace(/[A-Z]/g, str => '-' + str.toLowerCase());
+	},
 
-		/**
-		 * @param {String} string
-		 * @returns {String}
-		 */
-		camelize: function(string) {
-			return string.replace(/-([a-z])/g, function(str, p1) {
-				return p1.toUpperCase();
-			});
-		},
-
-		/**
-		 * @param {String} [prefix]
-		 * @param {String} [postfix]
-		 * @returns {String}
-		 */
-		createRandomId: function(prefix, postfix) {
-			var rnd = Math.floor(Math.random() * 100000);
-
-			prefix = prefix || 'id';
-			postfix = postfix ? ('_' + postfix) : '';
-
-			return (prefix + '_' + new Date().valueOf() + '_' + rnd + postfix);
-		},
-
-		/**
-		 * @param {String} string
-		 * @returns {string}
-		 */
-		capitalize: function(string) {
-			return string.slice(0, 1).toUpperCase() + string.slice(1);
+	/**
+	 * Replaces underscores, spaces, or camelCase with dashes.
+	 * @param {String} string
+	 * @param {Boolean} lower
+	 */
+	dasherize (string, lower = true) {
+		string = string.replace(/([a-z])(?=[A-Z])/g, '$1-');
+		if (lower) {
+			string = string.toLowerCase();
 		}
-	};
-})(DX, window, document);
+		return string;
+	},
+
+	/**
+	 * Camelizes given string,
+	 * @param {String} string
+	 * @returns {String}
+	 */
+	camelize (string, lower = true) {
+		//camelize
+		string = string.replace(/[-_\s]+(.)?/g, (match, c) => c ? c.toUpperCase() : '');
+		if (lower) {
+			//decapitalize
+			string = string[0].toLowerCase() + string.slice(1);
+		} else {
+			string = string[0].toUpperCase() + string.slice(1);
+		}
+		return string;
+	},
+
+	/**
+	 * Generate a unique id
+	 * @param {string|number} prefix
+	 * @param {string|number} postfix
+	 * @returns {string}
+	 */
+	 createRandomId(prefix = '', postfix = '') {
+		let id = ++uniqueIdCounter;
+		return prefix + id + postfix;
+	},
+
+	/**
+	 * Capitalizes given string
+	 * @param {String} string
+	 * @returns {string}
+	 */
+	capitalize (string) {
+		return string.slice(0, 1).toUpperCase() + string.slice(1);
+	}
+};

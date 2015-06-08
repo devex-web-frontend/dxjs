@@ -1,68 +1,67 @@
+'use strict';
+
 /**
  * @copyright Devexperts
  */
-(function(DX, window, document, undefined) {
-	'use strict';
+
+import DxCore from './dx.core';
+
+export default window.DX.Event = {
 
 	/**
-	 * @namespace
-	 * @memberOf window.DX
+	 * Execute all handlers attached to element for the given event type.
+	 * @param {Element} element
+	 * @param {String} eventType
+	 * @param {{bubbles: Boolean, detail: *}} [params]
 	 */
-	DX.Event = {
-		/**
-		 * @param {Element} element
-		 * @param {String} eventType
-		 * @param {Object} [params] - {Boolean:bubbles, Any:detail}
-		 */
-		trigger: function(element, eventType, params) {
-			var event;
 
-			params = params || {};
-			params.cancelable = true;
+	trigger (element, eventType, params) {
+		let event;
 
-			try {
-				event = new CustomEvent(eventType, params);
-			} catch (e) {
-				event = document.createEvent('CustomEvent');
-				event.initCustomEvent(eventType, params.bubbles, params.cancelable, params.detail);
-			}
+		params = params || {};
+		params.cancelable = true;
 
-			element.dispatchEvent(event);
-		},
+		try {
+			event = new CustomEvent(eventType, params);
+		} catch (e) {
+			event = document.createEvent('CustomEvent');
+			event.initCustomEvent(eventType, params.bubbles, params.cancelable, params.detail);
+		}
 
-		/* CONSTANTS ================================================================================================ */
-		/* Mouse */
-		CLICK: 'click',
-		TOUCH_CLICK: DX.isTouchAvailable() ? 'touchstart' : 'click',
-		MOUSE_UP: 'mouseup',
-		MOUSE_DOWN: 'mousedown',
-		MOUSE_MOVE: 'mousemove',
-		MOUSE_WHEEL: (function getMouseWheelEventName() {
-			var event = ('onmousewheel' in document.documentElement) ? 'mousewheel' : 'DOMMouseScroll';
+		element.dispatchEvent(event);
+	},
 
-			try {
-				new WheelEvent('wheel');
-				event = 'wheel';
-			} catch (e) {}
+	CLICK: 'click',
+	TOUCH_CLICK: DxCore.isTouchAvailable() ? 'touchstart' : 'click',
+	MOUSE_UP: 'mouseup',
+	MOUSE_DOWN: 'mousedown',
+	MOUSE_MOVE: 'mousemove',
+	MOUSE_WHEEL: (function getMouseWheelEventName() {
+		let event = ('onmousewheel' in document.documentElement) ? 'mousewheel' : 'DOMMouseScroll';
 
-			return event;
-		})(),
+		try {
+			new WheelEvent('wheel');
+			event = 'wheel';
+		} catch (e) {
+			/*empty block*/
+		}
 
-		/* Keyboard */
-		KEY_PRESS: 'keypress',
-		KEY_UP: 'keyup',
-		KEY_DOWN: 'keydown',
+		return event;
+	})(),
 
-		/* Forms */
-		FOCUS: 'focus',
-		BLUR: 'blur',
-		CHANGE: 'change',
-		SUBMIT: 'submit',
+	/* Keyboard */
+	KEY_PRESS: 'keypress',
+	KEY_UP: 'keyup',
+	KEY_DOWN: 'keydown',
 
-		/* Browser */
-		RESIZE: 'resize',
-		SCROLL: 'scroll',
-		SELECT_START: 'selectstart'
-	};
+	/* Forms */
+	FOCUS: 'focus',
+	BLUR: 'blur',
+	CHANGE: 'change',
+	SUBMIT: 'submit',
 
-})(DX, window, document);
+	/* Browser */
+	RESIZE: 'resize',
+	SCROLL: 'scroll',
+	SELECT_START: 'selectstart'
+};
