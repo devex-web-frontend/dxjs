@@ -38,8 +38,15 @@ export default window.DX.String = {
 	 * @param {String} string
 	 * @returns {String}
 	 */
-	camelize (string) {
+	camelize (string, lower = true) {
+		//camelize
 		string = string.replace(/[-_\s]+(.)?/g, (match, c) => c ? c.toUpperCase() : '');
+		if (lower) {
+			//decapitalize
+			string = string[0].toLowerCase() + string.slice(1);
+		} else {
+			string = string[0].toUpperCase() + string.slice(1);
+		}
 		return string;
 	},
 
@@ -49,12 +56,9 @@ export default window.DX.String = {
 	 * @param {string|number} postfix
 	 * @returns {string}
 	 */
-	 createRandomId(prefix, postfix) {
+	 createRandomId(prefix = '', postfix = '') {
 		let id = ++uniqueIdCounter;
-		prefix = prefix || 'id';
-		postfix = postfix ? ('_' + postfix) : '';
-
-		return (prefix + '_' + id + postfix);
+		return prefix + id + postfix;
 	},
 
 	/**

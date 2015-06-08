@@ -31,24 +31,24 @@ describe('DX.String', function() {
 			expect(DX.String.camelize('font-size')).toBe('fontSize');
 		});
 		it('should camelize the string that starts with hyphen correctly', function() {
-			expect(DX.String.camelize('-moz-box-sizing')).toBe('MozBoxSizing');
+			expect(DX.String.camelize('-moz-box-sizing', false)).toBe('MozBoxSizing');
 		});
 		it('should leave the string without hyphens as is', function() {
-			expect(DX.String.camelize('DragAndDrop')).toBe('DragAndDrop');
+			expect(DX.String.camelize('DragAndDrop', false)).toBe('DragAndDrop');
 		});
 	});
 	describe('#createRandomId()', function() {
 		it('should generate random id without prefix or postfix passed', function() {
 			expect(DX.String.createRandomId()).not.toBe(DX.String.createRandomId());
-			expect(/^id_\d+$/.test(DX.String.createRandomId())).toBeTruthy();
+			expect(/^\d+$/.test(DX.String.createRandomId())).toBeTruthy();
 		});
 
 		it('should generate random id with prefix passed', function() {
-			expect(/^rnd_\d+$/.test(DX.String.createRandomId('rnd'))).toBeTruthy();
+			expect(/^rnd\d+$/.test(DX.String.createRandomId('rnd'))).toBeTruthy();
 		});
 
 		it('should generate random id with postfix passed', function() {
-			expect(/^id_\d+_rnd$/.test(DX.String.createRandomId('', 'rnd'))).toBeTruthy();
+			expect(/^\d+rnd$/.test(DX.String.createRandomId('', 'rnd'))).toBeTruthy();
 		});
 	});
 
