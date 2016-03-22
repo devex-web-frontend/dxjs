@@ -4,14 +4,13 @@
   "license": "MPL-2.0",
   "scripts": {
     "test": "karma start --browsers PhantomJS --single-run",
-    "eslint": "eslint --ext .js src",
+    "eslint": "eslint --config ./node_modules/eslint-config-dx/.eslintrc --ext .js .",
     "postinstall": "bower prune && bower install"
   },
   "dependencies": {
     "babel-core": "^5.4.4",
     "bower": "^1.4.1",
     "es6-module-loader": "^0.16.6",
-    "eslint": "^0.22.1",
     "esprima-fb": "^15001.1.0-dev-harmony-fb",
     "install": "^0.1.8",
     "isparta": "^3.0.3",
@@ -24,5 +23,10 @@
     "npm": "^2.11.1",
     "phantomjs-polyfill": "0.0.1",
     "systemjs": "^0.16.11"
+  },
+  "devDependencies": {
+    "babel-eslint": "^5.0.0",
+    "eslint": "^1.10.3",
+    "eslint-config-dx": "github:devex-web-frontend/eslint-config-dx"
   }
 }

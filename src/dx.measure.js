@@ -26,7 +26,7 @@ export default window.DX.Measure = {
 	 * @param {Element} element
 	 * @return {{x:Number, y: Number}}
 	 */
-	getPosition (element) {
+	getPosition(element) {
 		let box = element.getBoundingClientRect();
 		let docElement = document.documentElement;
 

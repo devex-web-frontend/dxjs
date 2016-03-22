@@ -13,7 +13,7 @@ export default window.DX.Bem = {
 	 * @param {Array|String} [modifiers]
 	 * @return {String}
 	 */
-	createModifiedClassName (baseClassName, modifiers) {
+	createModifiedClassName(baseClassName, modifiers) {
 		let classNameParts = [];
 
 		modifiers = modifiers || [];
@@ -28,7 +28,7 @@ export default window.DX.Bem = {
 	 * @param {String} modifier
 	 * @param {String} [baseClassName]
 	 */
-	addModifier (element, modifier, baseClassName) {
+	addModifier(element, modifier, baseClassName) {
 		let classList = element.classList;
 		let classListToModify;
 
@@ -51,7 +51,7 @@ export default window.DX.Bem = {
 	 * @param {String} modifier
 	 * @param {String} [baseClassName]
 	 */
-	removeModifier (element, modifier, baseClassName) {
+	removeModifier(element, modifier, baseClassName) {
 		let classList = element.classList;
 		let	classListToRemove;
 
@@ -72,8 +72,9 @@ export default window.DX.Bem = {
 	 * @param {Element} element
 	 * @param {String} modifier
 	 * @param {String} [baseClassName]
+	 * @returns {boolean}
 	 */
-	hasModifier (element, modifier, baseClassName) {
+	hasModifier(element, modifier, baseClassName) {
 		let hasModifier;
 		let classList = element.classList;
 

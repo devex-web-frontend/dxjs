@@ -12,7 +12,7 @@ export default window.DX.Date = {
 	 * @param {Date} date
 	 * @returns {boolean}
 	 */
-	isDate (date) {
+	isDate(date) {
 		return (date instanceof Date) && !isNaN(date.valueOf());
 	},
 
@@ -21,7 +21,7 @@ export default window.DX.Date = {
 	 * @param {Date} date
 	 * @returns {Date}
 	 */
-	clone (date) {
+	clone(date) {
 		return new Date(date);
 	},
 
@@ -31,7 +31,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isEqualYear (date1, date2) {
+	isEqualYear(date1, date2) {
 		return date1.getFullYear() === date2.getFullYear();
 	},
 
@@ -41,7 +41,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isEqualMonth (date1, date2) {
+	isEqualMonth(date1, date2) {
 		return this.isEqualYear(date1, date2) && date1.getMonth() === date2.getMonth();
 	},
 
@@ -51,7 +51,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isEqual (date1, date2) {
+	isEqual(date1, date2) {
 		return this.isEqualMonth(date1, date2) &&
 			this.isEqualYear(date1, date2) &&
 			date1.getDate() === date2.getDate();
@@ -63,7 +63,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isGreaterYear (date1, date2) {
+	isGreaterYear(date1, date2) {
 		return date1.getFullYear() > date2.getFullYear();
 	},
 	/**
@@ -72,7 +72,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isLessYear (date1, date2) {
+	isLessYear(date1, date2) {
 		return this.isGreaterYear(date2, date1);
 	},
 
@@ -82,7 +82,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isGreaterMonth (date1, date2) {
+	isGreaterMonth(date1, date2) {
 		let year1 = date1.getFullYear();
 		let year2 = date2.getFullYear();
 
@@ -96,7 +96,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isLessMonth (date1, date2) {
+	isLessMonth(date1, date2) {
 		return this.isGreaterMonth(date2, date1);
 	},
 
@@ -106,7 +106,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isGreater (date1, date2) {
+	isGreater(date1, date2) {
 		date1 = this.clone(date1);
 		date2 = this.clone(date2);
 
@@ -122,7 +122,7 @@ export default window.DX.Date = {
 	 * @param {Date} date2
 	 * @returns {boolean}
 	 */
-	isLess (date1, date2) {
+	isLess(date1, date2) {
 		return this.isGreater(date2, date1);
 	},
 
@@ -131,7 +131,7 @@ export default window.DX.Date = {
 	 * @param {Date} date
 	 * @returns {Date}
 	 */
-	decrementMonth (date) {
+	decrementMonth(date) {
 		date = this.clone(date);
 		date.setMonth(date.getMonth() - 1);
 
@@ -143,7 +143,7 @@ export default window.DX.Date = {
 	 * @param {Date} date
 	 * @returns {Date}
 	 */
-	incrementMonth (date) {
+	incrementMonth(date) {
 		date = this.clone(date);
 
 		date.setMonth(date.getMonth() + 1);
@@ -155,7 +155,7 @@ export default window.DX.Date = {
 	 * Sets midnight for specified date
 	 * @param {Date} date
 	 */
-	setMidnight (date) {
+	setMidnight(date) {
 		date.setHours(0);
 		date.setMinutes(0);
 		date.setSeconds(0);
@@ -167,7 +167,7 @@ export default window.DX.Date = {
 	 * @param {Date} date
 	 * @returns {String}
 	 */
-	toShortISOString (date) {
+	toShortISOString(date) {
 		let hours;
 		let offsetHours;
 

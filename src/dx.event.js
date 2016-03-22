@@ -15,7 +15,7 @@ export default window.DX.Event = {
 	 * @param {{bubbles: Boolean, detail: *}} [params]
 	 */
 
-	trigger (element, eventType, params) {
+	trigger(element, eventType, params) {
 		let event;
 
 		params = params || {};

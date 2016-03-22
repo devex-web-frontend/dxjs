@@ -16,7 +16,7 @@ export default window.DX.String = {
 	 * @param {String} string
 	 * @returns {String}
 	 */
-	hyphenate (string) {
+	hyphenate(string) {
 		return string.replace(/[A-Z]/g, str => '-' + str.toLowerCase());
 	},
 
@@ -24,8 +24,9 @@ export default window.DX.String = {
 	 * Replaces underscores, spaces, or camelCase with dashes.
 	 * @param {String} string
 	 * @param {Boolean} lower
+	 * @returns {String}
 	 */
-	dasherize (string, lower = true) {
+	dasherize(string, lower = true) {
 		string = string.replace(/([a-z])(?=[A-Z])/g, '$1-');
 		if (lower) {
 			string = string.toLowerCase();
@@ -36,9 +37,10 @@ export default window.DX.String = {
 	/**
 	 * Camelizes given string,
 	 * @param {String} string
+	 * @param {boolean} [lower=true]
 	 * @returns {String}
 	 */
-	camelize (string, lower = true) {
+	camelize(string, lower = true) {
 		//camelize
 		string = string.replace(/[-_\s]+(.)?/g, (match, c) => c ? c.toUpperCase() : '');
 		if (lower) {
@@ -66,7 +68,7 @@ export default window.DX.String = {
 	 * @param {String} string
 	 * @returns {string}
 	 */
-	capitalize (string) {
+	capitalize(string) {
 		return string.slice(0, 1).toUpperCase() + string.slice(1);
 	}
 };

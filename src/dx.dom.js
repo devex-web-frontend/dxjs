@@ -15,7 +15,7 @@ export default window.DX.Dom = {
 	 * @param {Object} [options]
 	 * @return {Element}
 	 */
-	createElement (tagName, options) {
+	createElement(tagName, options) {
 		let element = document.createElement(tagName);
 		let newProp;
 
@@ -51,7 +51,7 @@ export default window.DX.Dom = {
 	 * @param {Element} element
 	 * @return {Element}
 	 */
-	getParent (element) {
+	getParent(element) {
 		return element.parentElement || element.parentNode;
 	},
 
@@ -75,7 +75,7 @@ export default window.DX.Dom = {
 	 * @param {Element} targetElement
 	 * @return {Boolean}
 	 */
-	isAscendant (element, targetElement) {
+	isAscendant(element, targetElement) {
 		return !!this.getAscendantByFilter(targetElement, function(currentElement) {
 			return currentElement === element;
 		});
@@ -87,7 +87,7 @@ export default window.DX.Dom = {
 	 * @param {String} className
 	 * @return {Element|null}
 	 */
-	getAscendantByClassName (element, className) {
+	getAscendantByClassName(element, className) {
 		return this.getAscendantByFilter(element, function(currentElement) {
 			return currentElement.classList && currentElement.classList.contains(className);
 		});
@@ -100,7 +100,7 @@ export default window.DX.Dom = {
 	 * @param {String} [attrValue]
 	 * @return {Element}
 	 */
-	getAscendantByAttribute (element, attrName, attrValue) {
+	getAscendantByAttribute(element, attrName, attrValue) {
 		return this.getAscendantByFilter(element, function(currentElement) {
 			return currentElement.hasAttribute(attrName) &&
 				(!attrValue || (currentElement.getAttribute(attrName) === attrValue));
@@ -112,7 +112,7 @@ export default window.DX.Dom = {
 	 * @param {Element} element
 	 * @return {Element|null}
 	 */
-	getNextSibling (element) {
+	getNextSibling(element) {
 		return getSibling('next', element);
 	},
 
@@ -121,7 +121,7 @@ export default window.DX.Dom = {
 	 * @param {Element} element
 	 * @return {Element|null}
 	 */
-	getPreviousSibling (element) {
+	getPreviousSibling(element) {
 		return getSibling('previous', element);
 	},
 
@@ -131,7 +131,7 @@ export default window.DX.Dom = {
 	 * @param {String} [namespace]
 	 * @return {Object}
 	 */
-	getData (element, namespace) {
+	getData(element, namespace) {
 		let defaultMatcher = 'data-';
 		let matcher = (namespace) ? defaultMatcher + namespace + '-' : defaultMatcher;
 		let attrs = element.attributes;

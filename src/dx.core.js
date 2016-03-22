@@ -46,7 +46,7 @@ export default window.DX = {
 	 * @param {*} variable
 	 * @returns {Boolean}
 	 */
-	isDefined (variable) {
+	isDefined(variable) {
 		return !(typeof variable === 'undefined' || variable === null);
 	},
 
@@ -54,7 +54,7 @@ export default window.DX = {
 	 * Check existence of a touch action in window
 	 * @returns {Boolean}
 	 */
-	isTouchAvailable () {
+	isTouchAvailable() {
 		return ('ontouchstart' in window);
 	}
 };
