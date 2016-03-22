@@ -1,10 +1,8 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
-export default window.DX = {
+export default {
 
 	/**
 	 * Shorthand for document.getElementById()

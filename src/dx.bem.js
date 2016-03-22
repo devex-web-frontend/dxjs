@@ -1,12 +1,8 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
-import './dx.core';
-
-export default window.DX.Bem = {
+export default {
 	/**
 	 * Make string for className attribute
 	 * @param {String} baseClassName

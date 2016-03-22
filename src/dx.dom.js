@@ -1,13 +1,10 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
-import './dx.core';
 import DxString from './dx.string';
 
-export default window.DX.Dom = {
+export default {
 
 	/**
 	 * Make element from tag and options

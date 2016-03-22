@@ -1,12 +1,8 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
-import './dx.core';
-
-export default window.DX.Date = {
+export default {
 	/**
 	 * Check is passed variable is date object
 	 * @param {Date} date

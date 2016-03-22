@@ -1,12 +1,8 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
-import './dx.core';
-
-export default window.DX.Measure = {
+export default {
 
 	/**
 	 * Get element sizes

@@ -1,12 +1,10 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
 import DxCore from './dx.core';
 
-export default window.DX.Event = {
+export default {
 
 	/**
 	 * Execute all handlers attached to element for the given event type.

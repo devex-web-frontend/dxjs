@@ -1,12 +1,10 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
 import './dx.core';
 
-export default window.DX.Tmpl = {
+export default {
 
 	/**
 	 * @deprecated

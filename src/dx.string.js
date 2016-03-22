@@ -1,14 +1,10 @@
-'use strict';
-
 /**
  * @copyright Devexperts
  */
 
-import './dx.core';
-
 let uniqueIdCounter = 0;
 
-export default window.DX.String = {
+export default {
 
 	/**
 	 * @deprecated
