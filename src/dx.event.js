@@ -35,7 +35,11 @@ export default {
 	MOUSE_DOWN: 'mousedown',
 	MOUSE_MOVE: 'mousemove',
 	MOUSE_WHEEL: (function getMouseWheelEventName() {
-		let event = ('onmousewheel' in document.documentElement) ? 'mousewheel' : 'DOMMouseScroll';
+		let event = (
+			typeof document !== 'undefined' &&
+			typeof document.documentElement !== 'undefined' &&
+			'onmousewheel' in document.documentElement
+		) ? 'mousewheel' : 'DOMMouseScroll';
 
 		try {
 			new WheelEvent('wheel');
