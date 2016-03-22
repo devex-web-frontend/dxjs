@@ -53,6 +53,6 @@ export default {
 	 * @returns {Boolean}
 	 */
 	isTouchAvailable() {
-		return ('ontouchstart' in window);
+		return (typeof window !== 'undefined' && 'ontouchstart' in window);
 	}
 };
