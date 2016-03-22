@@ -7,7 +7,7 @@ import Measure from './dx.measure';
 import String from './dx.string';
 import Tmpl from './dx.tmpl';
 
-export default {
+export default Object.assign({}, Core, {
 	Core,
 	Bem,
 	Date,
@@ -16,4 +16,4 @@ export default {
 	Measure,
 	String,
 	Tmpl
-};
+});
