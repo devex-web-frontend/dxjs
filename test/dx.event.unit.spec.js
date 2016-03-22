@@ -1,12 +1,15 @@
-import '../src/dx.event';
+import dxEvent from '../src/dx.event';
 
 describe('DX.Event', function() {
-	beforeEach(function() {});
-	afterEach(function() {});
+	beforeEach(function() {
+	});
+	afterEach(function() {
+	});
 
 	describe('#trigger()', function() {
-		var event = 'custom:event',
-				test, spy;
+		let event = 'custom:event';
+		let test;
+		let spy;
 
 		beforeEach(function() {
 			document.body.innerHTML = '<span id="test"></span>';
@@ -23,7 +26,7 @@ describe('DX.Event', function() {
 
 		it('should trigger custom event', function() {
 			test.addEventListener(event, spy);
-			DX.Event.trigger(test, event);
+			dxEvent.trigger(test, event);
 
 			expect(spy).toHaveBeenCalled();
 			expect(spy.calls.length).toEqual(1);
@@ -31,14 +34,14 @@ describe('DX.Event', function() {
 
 		it('should trigger event that not bubbles by default', function() {
 			document.addEventListener(event, spy);
-			DX.Event.trigger(test, event);
+			dxEvent.trigger(test, event);
 
 			expect(spy).not.toHaveBeenCalled();
 		});
 
 		it('should change bubbles according to e.bubbles', function() {
 			document.addEventListener(event, spy);
-			DX.Event.trigger(test, event, {bubbles: true});
+			dxEvent.trigger(test, event, {bubbles: true});
 
 			expect(spy).toHaveBeenCalled();
 			expect(spy.calls.length).toEqual(1);
@@ -48,7 +51,7 @@ describe('DX.Event', function() {
 			var detailSent = {a: 1};
 
 			test.addEventListener(event, spy);
-			DX.Event.trigger(test, event, {detail: detailSent});
+			dxEvent.trigger(test, event, {detail: detailSent});
 
 			expect(spy.mostRecentCall.args[0].detail).toBe(detailSent);
 		});
@@ -56,22 +59,22 @@ describe('DX.Event', function() {
 
 	describe('constants', function() {
 		it('should provide public constants', function() {
-			expect(DX.Event.CLICK).toBe('click');
-			expect(DX.Event.TOUCH_CLICK).toBeIn(['click', 'touchstart']);
-			expect(DX.Event.MOUSE_UP).toBe('mouseup');
-			expect(DX.Event.MOUSE_DOWN).toBe('mousedown');
-			expect(DX.Event.MOUSE_MOVE).toBe('mousemove');
-			expect(DX.Event.MOUSE_WHEEL).toBeIn(['mousewheel', 'DOMMouseScroll', 'wheel']);
-			expect(DX.Event.KEY_PRESS).toBe('keypress');
-			expect(DX.Event.KEY_UP).toBe('keyup');
-			expect(DX.Event.KEY_DOWN).toBe('keydown');
-			expect(DX.Event.FOCUS).toBe('focus');
-			expect(DX.Event.BLUR).toBe('blur');
-			expect(DX.Event.CHANGE).toBe('change');
-			expect(DX.Event.SUBMIT).toBe('submit');
-			expect(DX.Event.RESIZE).toBe('resize');
-			expect(DX.Event.SCROLL).toBe('scroll');
-			expect(DX.Event.SELECT_START).toBe('selectstart');
+			expect(dxEvent.CLICK).toBe('click');
+			expect(dxEvent.TOUCH_CLICK).toBeIn(['click', 'touchstart']);
+			expect(dxEvent.MOUSE_UP).toBe('mouseup');
+			expect(dxEvent.MOUSE_DOWN).toBe('mousedown');
+			expect(dxEvent.MOUSE_MOVE).toBe('mousemove');
+			expect(dxEvent.MOUSE_WHEEL).toBeIn(['mousewheel', 'DOMMouseScroll', 'wheel']);
+			expect(dxEvent.KEY_PRESS).toBe('keypress');
+			expect(dxEvent.KEY_UP).toBe('keyup');
+			expect(dxEvent.KEY_DOWN).toBe('keydown');
+			expect(dxEvent.FOCUS).toBe('focus');
+			expect(dxEvent.BLUR).toBe('blur');
+			expect(dxEvent.CHANGE).toBe('change');
+			expect(dxEvent.SUBMIT).toBe('submit');
+			expect(dxEvent.RESIZE).toBe('resize');
+			expect(dxEvent.SCROLL).toBe('scroll');
+			expect(dxEvent.SELECT_START).toBe('selectstart');
 		});
 	});
 });

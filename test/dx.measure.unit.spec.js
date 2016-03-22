@@ -1,4 +1,4 @@
-import '../src/dx.measure';
+import dxMeasure from '../src/dx.measure';
 
 describe('DX.Measure', function() {
 	beforeEach(function() {
@@ -15,8 +15,8 @@ describe('DX.Measure', function() {
 					'<span id="test"></span>'
 				].join('');
 
-				expect(DX.Measure.getSize(document.getElementById('test')).width).toBe(0);
-				expect(DX.Measure.getSize(document.getElementById('test')).height).toBe(0);
+				expect(dxMeasure.getSize(document.getElementById('test')).width).toBe(0);
+				expect(dxMeasure.getSize(document.getElementById('test')).height).toBe(0);
 			});
 
 			it('should return correct size of element with fixed size', function() {
@@ -28,8 +28,8 @@ describe('DX.Measure', function() {
 					'<span id="test"></span>'
 				].join('');
 
-				expect(DX.Measure.getSize(document.getElementById('test')).width).toBe(100);
-				expect(DX.Measure.getSize(document.getElementById('test')).height).toBe(100);
+				expect(dxMeasure.getSize(document.getElementById('test')).width).toBe(100);
+				expect(dxMeasure.getSize(document.getElementById('test')).height).toBe(100);
 			});
 
 			it('should return correct size of element with size defined by inner element', function() {
@@ -42,8 +42,8 @@ describe('DX.Measure', function() {
 					'<span id="test"><h1></h1></span>'
 				].join('');
 
-				expect(DX.Measure.getSize(document.getElementById('test')).width).toBe(100);
-				expect(DX.Measure.getSize(document.getElementById('test')).height).toBe(100);
+				expect(dxMeasure.getSize(document.getElementById('test')).width).toBe(100);
+				expect(dxMeasure.getSize(document.getElementById('test')).height).toBe(100);
 			});
 
 			it('should return correct height of element with size defined by content', function() {
@@ -55,7 +55,7 @@ describe('DX.Measure', function() {
 					'<span id="test">Hello, world!</span>'
 				].join('');
 
-				expect(DX.Measure.getSize(document.getElementById('test')).height).toBe(100);
+				expect(dxMeasure.getSize(document.getElementById('test')).height).toBe(100);
 			});
 		});
 
@@ -69,8 +69,8 @@ describe('DX.Measure', function() {
 					'<span id="test"></span>'
 				].join('');
 
-				expect(DX.Measure.getSize(document.getElementById('test'), true).width).toBe(30);
-				expect(DX.Measure.getSize(document.getElementById('test'), true).height).toBe(20);
+				expect(dxMeasure.getSize(document.getElementById('test'), true).width).toBe(30);
+				expect(dxMeasure.getSize(document.getElementById('test'), true).height).toBe(20);
 			});
 
 			it('should add borders', function() {
@@ -82,16 +82,16 @@ describe('DX.Measure', function() {
 					'<span id="test"></span>'
 				].join('');
 
-				expect(DX.Measure.getSize(document.getElementById('test'), true).width).toBe(6);
-				expect(DX.Measure.getSize(document.getElementById('test'), true).height).toBe(4);
+				expect(dxMeasure.getSize(document.getElementById('test'), true).width).toBe(6);
+				expect(dxMeasure.getSize(document.getElementById('test'), true).height).toBe(4);
 			});
 		});
 	});
 
 	describe('#getPosition', function() {
-		var scrollable,
-			spacer,
-			element;
+		let scrollable;
+		let spacer;
+		let element;
 
 		beforeEach(function() {
 			scrollable = document.createElement('div');
@@ -130,7 +130,7 @@ describe('DX.Measure', function() {
 		});
 
 		it('should correctly calculate vertical position', function() {
-			var pos = DX.Measure.getPosition(element);
+			var pos = dxMeasure.getPosition(element);
 
 			expect(pos.y).toBe(200);
 		});
@@ -138,13 +138,13 @@ describe('DX.Measure', function() {
 		it('should correctly calculate vertical position if target element placed in scrollable parent', function() {
 			scrollable.scrollTop = 100;
 
-			var pos = DX.Measure.getPosition(element);
+			var pos = dxMeasure.getPosition(element);
 
 			expect(pos.y).toBe(100);
 		});
 
 		it('should correctly calculate horizontal position', function() {
-			var pos = DX.Measure.getPosition(element);
+			var pos = dxMeasure.getPosition(element);
 
 			expect(pos.x).toBe(200);
 		});
@@ -152,7 +152,7 @@ describe('DX.Measure', function() {
 		it('should correctly calculate vertical position if target element placed in scrollable parent', function() {
 			scrollable.scrollLeft = 100;
 
-			var pos = DX.Measure.getPosition(element);
+			var pos = dxMeasure.getPosition(element);
 
 			expect(pos.x).toBe(100);
 		});
@@ -162,7 +162,7 @@ describe('DX.Measure', function() {
 
 			scrollable.style.border = '1px solid yellow';
 
-			pos = DX.Measure.getPosition(element);
+			pos = dxMeasure.getPosition(element);
 
 			expect(pos.x).toBe(201);
 		});

@@ -3,7 +3,7 @@
   "version": "3.0.2",
   "license": "MPL-2.0",
   "scripts": {
-    "test": "karma start --browsers PhantomJS --single-run",
+    "test": "npm run eslint && karma start --browsers PhantomJS --single-run",
     "eslint": "eslint --config ./node_modules/eslint-config-dx/.eslintrc --ext .js .",
     "postinstall": "bower prune && bower install"
   },
