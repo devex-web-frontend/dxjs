@@ -1,10 +1,12 @@
-var babelMoreOptions = { stage: 0 };
+var babelMoreOptions = {
+	stage: 0
+};
 
-module.exports = function (config) {
+module.exports = function(config) {
 	config.set({
 
 		// base path, that will be used to resolve files and exclude
-		basePath : './',
+		basePath: './',
 
 		// frameworks to use
 		frameworks: ['systemjs', 'jasmine'],
@@ -57,7 +59,8 @@ module.exports = function (config) {
 		colors: true,
 
 		// level of logging
-		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
+		// possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO ||
+		// config.LOG_DEBUG
 		logLevel: config.LOG_INFO,
 
 		// If browser does not capture in given timeout [ms], kill it

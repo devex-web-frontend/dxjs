@@ -61,7 +61,7 @@ export default window.DX.Dom = {
 	 * @param {Function} filterFn
 	 * @returns {Element | null}
 	 */
-	getAscendantByFilter (element, filterFn) {
+	getAscendantByFilter(element, filterFn) {
 		while (element && (element !== document) && !filterFn(element)) {
 			element = this.getParent(element);
 		}
