@@ -1,19 +1,19 @@
-import dxCore from './dx.core';
-import dxBem from './dx.bem';
-import dxDate from './dx.date';
-import dxDom from './dx.dom';
-import dxEvent from './dx.event';
-import dxMeasure from './dx.measure';
-import dxString from './dx.string';
-import dxTmpl from './dx.tmpl';
+import Core from './dx.core';
+import Bem from './dx.bem';
+import Date from './dx.date';
+import Dom from './dx.dom';
+import Event from './dx.event';
+import Measure from './dx.measure';
+import String from './dx.string';
+import Tmpl from './dx.tmpl';
 
 export default {
-	dxCore,
-	dxBem,
-	dxDate,
-	dxDom,
-	dxEvent,
-	dxMeasure,
-	dxString,
-	dxTmpl
+	Core,
+	Bem,
+	Date,
+	Dom,
+	Event,
+	Measure,
+	String,
+	Tmpl
 };
