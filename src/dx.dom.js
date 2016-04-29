@@ -10,7 +10,7 @@ export default {
 	 * Make element from tag and options
 	 * @param {String} tagName
 	 * @param {Object} [options]
-	 * @return {Element}
+	 * @return {HTMLElement}
 	 */
 	createElement(tagName, options) {
 		let element = document.createElement(tagName);
@@ -45,8 +45,8 @@ export default {
 
 	/**
 	 * Get the parent for specified element
-	 * @param {Element} element
-	 * @return {Element}
+	 * @param {HTMLElement} element
+	 * @return {HTMLElement}
 	 */
 	getParent(element) {
 		return element.parentElement || element.parentNode;
@@ -54,9 +54,9 @@ export default {
 
 	/**
 	 * Get the parent  for specified element matches filterFn
-	 * @param {Element | HTMLDocument} element
+	 * @param {HTMLElement | HTMLDocument} element
 	 * @param {Function} filterFn
-	 * @returns {Element | null}
+	 * @returns {HTMLElement | null}
 	 */
 	getAscendantByFilter(element, filterFn) {
 		while (element && (element !== document) && !filterFn(element)) {
@@ -68,8 +68,8 @@ export default {
 
 	/**
 	 * Checks if element is accendant
-	 * @param {Element} element
-	 * @param {Element} targetElement
+	 * @param {HTMLElement} element
+	 * @param {HTMLElement} targetElement
 	 * @return {Boolean}
 	 */
 	isAscendant(element, targetElement) {
@@ -80,9 +80,9 @@ export default {
 
 	/**
 	 * Get ascendant element by className
-	 * @param {Element} element
+	 * @param {HTMLElement} element
 	 * @param {String} className
-	 * @return {Element|null}
+	 * @return {HTMLElement|null}
 	 */
 	getAscendantByClassName(element, className) {
 		return this.getAscendantByFilter(element, function(currentElement) {
@@ -92,10 +92,10 @@ export default {
 
 	/**
 	 * Get ascendant element by attribute
-	 * @param {Element} element
+	 * @param {HTMLElement} element
 	 * @param {String} attrName
 	 * @param {String} [attrValue]
-	 * @return {Element}
+	 * @return {HTMLElement}
 	 */
 	getAscendantByAttribute(element, attrName, attrValue) {
 		return this.getAscendantByFilter(element, function(currentElement) {
@@ -106,8 +106,8 @@ export default {
 
 	/**
 	 * Get next sibling for specified element
-	 * @param {Element} element
-	 * @return {Element|null}
+	 * @param {HTMLElement} element
+	 * @return {HTMLElement|null}
 	 */
 	getNextSibling(element) {
 		return getSibling('next', element);
@@ -115,8 +115,8 @@ export default {
 
 	/**
 	 * Get previous sibling for specified element
-	 * @param {Element} element
-	 * @return {Element|null}
+	 * @param {HTMLElement} element
+	 * @return {HTMLElement|null}
 	 */
 	getPreviousSibling(element) {
 		return getSibling('previous', element);
@@ -124,7 +124,7 @@ export default {
 
 	/**
 	 * Get arbitrary data associated with the specified element
-	 * @param {Element} element
+	 * @param {HTMLElement} element
 	 * @param {String} [namespace]
 	 * @return {Object}
 	 */
