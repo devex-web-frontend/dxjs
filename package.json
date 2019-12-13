@@ -20,7 +20,7 @@
     "karma-jasmine": "~0.1.5",
     "karma-phantomjs-launcher": "~0.1.4",
     "karma-systemjs": "^0.4.0",
-    "npm": "^2.11.1",
+    "npm": "^6.13.4",
     "phantomjs-polyfill": "0.0.1",
     "systemjs": "^0.16.11"
   },
